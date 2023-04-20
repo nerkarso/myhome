@@ -1,0 +1,5 @@
+.cache
+*.esm.js
+dist/*
+node_modules
+public
