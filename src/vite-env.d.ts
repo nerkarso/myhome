@@ -11,7 +11,7 @@ interface ImportMeta {
 
 declare module '@refinedev/react-router-v6';
 
-interface ComponentProps<T = void> extends T {
+type ComponentProps<T = Record<string, any>> = T & {
   children?: JSX.Element | React.ReactNode;
   className?: string;
-}
+};
