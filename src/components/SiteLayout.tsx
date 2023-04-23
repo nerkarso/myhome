@@ -1,6 +1,6 @@
 import SiteHeader from '@/components/SiteHeader';
 
-export default function SiteLayout({ children }: any) {
+export default function SiteLayout({ children }: ComponentProps) {
   return (
     <>
       <SiteHeader />
