@@ -53,8 +53,9 @@
       "sourceType": "module"
     },
     "rules": {
-      "no-undef": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
       "@typescript-eslint/no-var-requires": "off",
+      "no-undef": "off",
       "tailwindcss/no-custom-classname": "off"
     }
   },
