@@ -1,4 +1,5 @@
 @import 'antd/dist/reset.css';
+@import 'preflight.css';
 
 @tailwind base;
 @tailwind components;
