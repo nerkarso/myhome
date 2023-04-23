@@ -25,6 +25,9 @@ dependencies:
   antd:
     specifier: ^5.0.5
     version: 5.0.5(react-dom@18.2.0)(react@18.2.0)
+  lucide-react:
+    specifier: ^0.176.0
+    version: 0.176.0(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -4395,6 +4398,14 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+
+  /lucide-react@0.176.0(react@18.2.0):
+    resolution: {integrity: sha512-foy+PkZQ5/inC2W8zHddPUGrJ/t1bmVLPVtFytnfwUVGHMHkKbjTd26teEuRx0zYSE8xFyABiQiEy22xWUlHQw==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /magic-string@0.30.0:
     resolution: {integrity: sha512-LA+31JYDJLs82r2ScLrlz1GjSgu66ZV518eyWT+S8VhyQn/JL0u9MeBOvQMGYiPk1DBiSN9DDMOcXvigJZaViQ==}
