@@ -7,7 +7,6 @@ export default function HomePage() {
     <SiteLayout>
       <HomeHero />
       <HomeNewListings />
-      <div className="py-6"></div>
     </SiteLayout>
   );
 }
