@@ -1,3 +1,4 @@
+import ScrollStartTop from '@/components/ScrollStartTop';
 import { authProvider } from '@/features/supabase/authProvider';
 import { supabaseClient } from '@/features/supabase/supabaseClient';
 import ThemeConfigProvider from '@/features/theme/ThemeConfigProvider';
@@ -22,44 +23,48 @@ import PricingPage from '@/features/pricing/PricingPage';
 export default function App() {
   return (
     <BrowserRouter>
-      <ThemeConfigProvider>
-        <Refine
-          authProvider={authProvider}
-          dataProvider={dataProvider(supabaseClient)}
-          liveProvider={liveProvider(supabaseClient)}
-          notificationProvider={notificationProvider}
-          options={{
-            reactQuery: {
-              devtoolConfig: false,
-            },
-          }}
-          routerProvider={routerBindings}
-        >
-          <Routes>
-            <Route index element={<HomePage />} />
-            <Route element={<ListingsPage />} path="/listings" />
-            <Route element={<ListingDetailsPage />} path="/listings/:id" />
-            <Route element={<PricingPage />} path="/pricing" />
-            <Route element={<ComplaintPage />} path="/help/complaint" />
-            <Route
-              element={
-                <Authenticated fallback={<CatchAllNavigate to="/auth/login" />}>
-                  <Outlet />
-                </Authenticated>
-              }
-            ></Route>
-            <Route element={<Authenticated fallback={<Outlet />} />}>
-              <Route element={<LoginPage />} path="/auth/login" />
-              <Route element={<SignupPage />} path="/auth/signup" />
+      <ScrollStartTop>
+        <ThemeConfigProvider>
+          <Refine
+            authProvider={authProvider}
+            dataProvider={dataProvider(supabaseClient)}
+            liveProvider={liveProvider(supabaseClient)}
+            notificationProvider={notificationProvider}
+            options={{
+              reactQuery: {
+                devtoolConfig: false,
+              },
+            }}
+            routerProvider={routerBindings}
+          >
+            <Routes>
+              <Route index element={<HomePage />} />
+              <Route element={<ListingsPage />} path="/listings" />
+              <Route element={<ListingDetailsPage />} path="/listings/:id" />
+              <Route element={<PricingPage />} path="/pricing" />
+              <Route element={<ComplaintPage />} path="/help/complaint" />
               <Route
-                element={<ForgotPasswordPage />}
-                path="/auth/forgot-password"
-              />
-            </Route>
-          </Routes>
-          <UnsavedChangesNotifier />
-        </Refine>
-      </ThemeConfigProvider>
+                element={
+                  <Authenticated
+                    fallback={<CatchAllNavigate to="/auth/login" />}
+                  >
+                    <Outlet />
+                  </Authenticated>
+                }
+              ></Route>
+              <Route element={<Authenticated fallback={<Outlet />} />}>
+                <Route element={<LoginPage />} path="/auth/login" />
+                <Route element={<SignupPage />} path="/auth/signup" />
+                <Route
+                  element={<ForgotPasswordPage />}
+                  path="/auth/forgot-password"
+                />
+              </Route>
+            </Routes>
+            <UnsavedChangesNotifier />
+          </Refine>
+        </ThemeConfigProvider>
+      </ScrollStartTop>
     </BrowserRouter>
   );
 }
