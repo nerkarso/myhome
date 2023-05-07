@@ -1,3 +1,5 @@
+import { formatPrice } from '@/utils/formatPrice';
+
 export const subscriptionsData = [
   {
     subtitle: 'SIMPLE',
@@ -8,7 +10,7 @@ export const subscriptionsData = [
   },
   {
     subtitle: 'SILVER',
-    title: '$5',
+    title: formatPrice(5_000),
     titlePostfix: '/mo',
     features: [
       'Browse listings',
@@ -21,7 +23,7 @@ export const subscriptionsData = [
   },
   {
     subtitle: 'GOLD',
-    title: '$10',
+    title: formatPrice(10_000),
     titlePostfix: '/mo',
     features: [
       'Browse listings',

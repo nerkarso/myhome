@@ -15,7 +15,7 @@ export default function PricingPage() {
             Choose one of the subscriptions and have access to premium features.
           </p>
           <div className="mx-auto mt-6 w-full max-w-xs">
-            <Segmented options={['Monthly', 'Yearly']} size="large" block />
+            <Segmented block options={['Monthly', 'Yearly']} size="large" />
           </div>
         </div>
         <div className="-m-4 flex flex-wrap">
@@ -31,12 +31,12 @@ export default function PricingPage() {
               },
               i
             ) => (
-              <div className="w-full p-4 sm:w-1/2 lg:w-1/3" key={i}>
+              <div key={i} className="w-full p-4 sm:w-1/2 lg:w-1/3">
                 <div className="ring-base-200 relative flex h-full flex-col overflow-hidden rounded-lg p-6 shadow-md ring-1">
                   <h2 className="mb-1 text-sm font-medium tracking-widest">
                     {subtitle}
                   </h2>
-                  <h1 className="text-base-900 border-base-200 mb-4 flex items-center border-b pb-4 text-5xl leading-none">
+                  <h1 className="text-base-900 border-base-200 mb-4 flex items-center border-b pb-4 text-4xl leading-none">
                     <span>{title}</span>
                     <span className="text-base-500 ml-1 text-lg">
                       {titlePostfix}
@@ -44,15 +44,15 @@ export default function PricingPage() {
                   </h1>
                   {features.map((feature, i) => (
                     <p
-                      className="text-base-600 mb-2 flex items-center gap-2"
                       key={i}
+                      className="text-base-600 mb-2 flex items-center gap-2"
                     >
                       <CheckCircle2 className="text-primary-500" />
                       {feature}
                     </p>
                   ))}
                   <div className="mt-auto pt-4">
-                    <Button href={buttonHref} type="primary" block>
+                    <Button block href={buttonHref} type="primary">
                       {buttonText}
                     </Button>
                   </div>
