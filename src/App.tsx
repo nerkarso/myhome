@@ -21,6 +21,11 @@ export default function App() {
     <ThemeProvider>
       <BrowserRouter>
         <Refine
+          options={{
+            reactQuery: {
+              devtoolConfig: {},
+            },
+          }}
           authProvider={authProvider}
           dataProvider={dataProvider(supabaseClient)}
           liveProvider={liveProvider(supabaseClient)}
