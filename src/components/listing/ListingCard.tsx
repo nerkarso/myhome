@@ -1,5 +1,6 @@
 import { formatPrice } from '@/utils/formatPrice';
 import { Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 export default function ListingCard({ listing }: any) {
   return (
@@ -13,7 +14,9 @@ export default function ListingCard({ listing }: any) {
           {listing.address}
         </p>
         <div className="mt-2">
-          <Button>View more</Button>
+          <Link to={`/listings/${listing.id}`}>
+            <Button>View more</Button>
+          </Link>
         </div>
       </div>
     </div>

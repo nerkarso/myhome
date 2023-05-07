@@ -1,4 +1,4 @@
-import ListingCard from '@/components/ListingCard';
+import ListingCard from '@/components/listing/ListingCard';
 import SiteLayout from '@/components/SiteLayout';
 import { listingsData } from '@/data/listings';
 import ListingsLayout from '@/features/listings/ListingsLayout';

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function SiteFooter() {
   return (
     <footer>
@@ -17,13 +19,13 @@ export default function SiteFooter() {
               href: '/support',
             },
           ].map(({ label, href }, i) => (
-            <div className="px-5 py-2" key={i}>
-              <a
-                href={href}
+            <div key={i} className="px-5 py-2">
+              <Link
                 className="hover:text-primary-600 text-sm text-gray-500"
+                to={href}
               >
                 {label}
-              </a>
+              </Link>
             </div>
           ))}
         </nav>
