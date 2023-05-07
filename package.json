@@ -33,33 +33,12 @@
     "@typescript-eslint/parser": "^5.59.0",
     "@vitejs/plugin-react": "^4.0.0-beta.0",
     "eslint": "^8.39.0",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-tailwindcss": "^3.11.0",
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.1",
     "typescript": "^5.0.4",
     "vite": "^4.3.1"
-  },
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "es2020": true
-    },
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:tailwindcss/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaVersion": "latest",
-      "sourceType": "module"
-    },
-    "rules": {
-      "@typescript-eslint/ban-ts-comment": "off",
-      "@typescript-eslint/no-var-requires": "off",
-      "no-undef": "off",
-      "tailwindcss/no-custom-classname": "off"
-    }
   },
   "browserslist": {
     "production": [
@@ -72,5 +51,38 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2020": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:tailwindcss/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "no-undef": "off",
+      "tailwindcss/no-custom-classname": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-sort-props": [
+        "warn",
+        {
+          "callbacksLast": true,
+          "ignoreCase": true,
+          "reservedFirst": true,
+          "shorthandFirst": true
+        }
+      ]
+    }
   }
 }
