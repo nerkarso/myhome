@@ -15,8 +15,8 @@ export default function SiteFooter() {
               href: '/pricing',
             },
             {
-              label: 'Help & Complaints',
-              href: '/support',
+              label: 'Report complaint',
+              href: '/help/complaint',
             },
           ].map(({ label, href }, i) => (
             <div key={i} className="px-5 py-2">

@@ -13,6 +13,7 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import ForgotPasswordPage from '@/features/auth/forgot-password/ForgotPasswordPage';
 import LoginPage from '@/features/auth/login/LoginPage';
 import SignupPage from '@/features/auth/signup/SignupPage';
+import ComplaintPage from '@/features/help/ComplaintPage';
 import HomePage from '@/features/home/HomePage';
 import ListingDetailsPage from '@/features/listingDetails/ListingDetailsPage';
 import ListingsPage from '@/features/listings/ListingsPage';
@@ -39,6 +40,7 @@ export default function App() {
             <Route element={<ListingsPage />} path="/listings" />
             <Route element={<ListingDetailsPage />} path="/listings/:id" />
             <Route element={<PricingPage />} path="/pricing" />
+            <Route element={<ComplaintPage />} path="/help/complaint" />
             <Route
               element={
                 <Authenticated fallback={<CatchAllNavigate to="/auth/login" />}>
