@@ -14,6 +14,7 @@ import ForgotPasswordPage from '@/features/auth/forgot-password/ForgotPasswordPa
 import LoginPage from '@/features/auth/login/LoginPage';
 import SignupPage from '@/features/auth/signup/SignupPage';
 import HomePage from '@/features/home/HomePage';
+import ListingDetailsPage from '@/features/listingDetails/ListingDetailsPage';
 import ListingsPage from '@/features/listings/ListingsPage';
 import PricingPage from '@/features/pricing/PricingPage';
 
@@ -28,7 +29,7 @@ export default function App() {
           notificationProvider={notificationProvider}
           options={{
             reactQuery: {
-              devtoolConfig: {},
+              devtoolConfig: false,
             },
           }}
           routerProvider={routerBindings}
@@ -36,6 +37,7 @@ export default function App() {
           <Routes>
             <Route index element={<HomePage />} />
             <Route element={<ListingsPage />} path="/listings" />
+            <Route element={<ListingDetailsPage />} path="/listings/:id" />
             <Route element={<PricingPage />} path="/pricing" />
             <Route
               element={
