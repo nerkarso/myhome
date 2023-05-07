@@ -13,6 +13,7 @@ import ForgotPasswordPage from '@/features/auth/forgot-password/ForgotPasswordPa
 import LoginPage from '@/features/auth/login/LoginPage';
 import SignupPage from '@/features/auth/signup/SignupPage';
 import HomePage from '@/features/home/HomePage';
+import ListingsPage from '@/features/listings/ListingsPage';
 import PricingPage from '@/features/pricing/PricingPage';
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
               path="/auth/forgot-password"
               element={<ForgotPasswordPage />}
             />
+            <Route path="/listings" element={<ListingsPage />} />
             <Route path="/pricing" element={<PricingPage />} />
           </Routes>
           <UnsavedChangesNotifier />

@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
+    "@headlessui/react": "^1.7.14",
+    "@heroicons/react": "^2.0.17",
     "@refinedev/antd": "^5.7.0",
     "@refinedev/cli": "^2.5.1",
     "@refinedev/core": "^4.5.8",
