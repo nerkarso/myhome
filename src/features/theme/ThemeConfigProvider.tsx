@@ -1,7 +1,9 @@
 import { ConfigProvider } from 'antd';
 import colors from 'tailwindcss/colors';
 
-export default function ThemeProvider({ children }: any) {
+export default function ThemeConfigProvider({
+  children,
+}: React.PropsWithChildren) {
   return (
     <ConfigProvider
       theme={{

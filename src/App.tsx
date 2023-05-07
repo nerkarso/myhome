@@ -1,13 +1,14 @@
 import { authProvider } from '@/features/supabase/authProvider';
 import { supabaseClient } from '@/features/supabase/supabaseClient';
-import ThemeProvider from '@/features/theme/ThemeProvider';
+import ThemeConfigProvider from '@/features/theme/ThemeConfigProvider';
 import { notificationProvider } from '@refinedev/antd';
-import { Refine } from '@refinedev/core';
+import { Authenticated, Refine } from '@refinedev/core';
 import routerBindings, {
+  CatchAllNavigate,
   UnsavedChangesNotifier,
 } from '@refinedev/react-router-v6';
 import { dataProvider, liveProvider } from '@refinedev/supabase';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 
 import ForgotPasswordPage from '@/features/auth/forgot-password/ForgotPasswordPage';
 import LoginPage from '@/features/auth/login/LoginPage';
@@ -18,34 +19,43 @@ import PricingPage from '@/features/pricing/PricingPage';
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ThemeConfigProvider>
         <Refine
+          authProvider={authProvider}
+          dataProvider={dataProvider(supabaseClient)}
+          liveProvider={liveProvider(supabaseClient)}
+          notificationProvider={notificationProvider}
           options={{
             reactQuery: {
               devtoolConfig: {},
             },
           }}
-          authProvider={authProvider}
-          dataProvider={dataProvider(supabaseClient)}
-          liveProvider={liveProvider(supabaseClient)}
           routerProvider={routerBindings}
-          notificationProvider={notificationProvider}
         >
           <Routes>
             <Route index element={<HomePage />} />
-            <Route path="/auth/login" element={<LoginPage />} />
-            <Route path="/auth/signup" element={<SignupPage />} />
+            <Route element={<ListingsPage />} path="/listings" />
+            <Route element={<PricingPage />} path="/pricing" />
             <Route
-              path="/auth/forgot-password"
-              element={<ForgotPasswordPage />}
-            />
-            <Route path="/listings" element={<ListingsPage />} />
-            <Route path="/pricing" element={<PricingPage />} />
+              element={
+                <Authenticated fallback={<CatchAllNavigate to="/auth/login" />}>
+                  <Outlet />
+                </Authenticated>
+              }
+            ></Route>
+            <Route element={<Authenticated fallback={<Outlet />} />}>
+              <Route element={<LoginPage />} path="/auth/login" />
+              <Route element={<SignupPage />} path="/auth/signup" />
+              <Route
+                element={<ForgotPasswordPage />}
+                path="/auth/forgot-password"
+              />
+            </Route>
           </Routes>
           <UnsavedChangesNotifier />
         </Refine>
-      </BrowserRouter>
-    </ThemeProvider>
+      </ThemeConfigProvider>
+    </BrowserRouter>
   );
 }
