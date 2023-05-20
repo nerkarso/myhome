@@ -17,6 +17,7 @@ import SignupPage from '@/features/auth/signup/SignupPage';
 import ComplaintPage from '@/features/help/ComplaintPage';
 import HomePage from '@/features/home/HomePage';
 import ListingDetailsPage from '@/features/listingDetails/ListingDetailsPage';
+import ListingsNewPage from '@/features/listings/ListingsNewPage';
 import ListingsPage from '@/features/listings/ListingsPage';
 import PricingPage from '@/features/pricing/PricingPage';
 
@@ -43,6 +44,10 @@ export default function App() {
               <Route element={<ListingDetailsPage />} path="/listings/:id" />
               <Route element={<PricingPage />} path="/pricing" />
               <Route element={<ComplaintPage />} path="/help/complaint" />
+              <Route
+                element={<ListingsNewPage />}
+                path="/users/:id/listings/new"
+              />
               <Route
                 element={
                   <Authenticated

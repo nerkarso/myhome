@@ -64,14 +64,14 @@ function classNames(...classes) {
 }
 
 // @ts-ignore
-export default function ListingsLayout({ children }) {
+export default function ListingsLayout({ children }: any) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   return (
     <div className="bg-white">
       <div>
         {/* Mobile filter dialog */}
-        <Transition.Root show={mobileFiltersOpen} as={Fragment}>
+        <Transition.Root as={Fragment} show={mobileFiltersOpen}>
           <Dialog
             as="div"
             className="relative z-40 lg:hidden"
@@ -105,12 +105,12 @@ export default function ListingsLayout({ children }) {
                       Filters
                     </h2>
                     <button
-                      type="button"
                       className="text-base-400 -mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2"
+                      type="button"
                       onClick={() => setMobileFiltersOpen(false)}
                     >
                       <span className="sr-only">Close menu</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                      <XMarkIcon aria-hidden="true" className="h-6 w-6" />
                     </button>
                   </div>
 
@@ -118,12 +118,12 @@ export default function ListingsLayout({ children }) {
                   <form className="border-base-200 mt-4 border-t">
                     <h3 className="sr-only">Categories</h3>
                     <ul
-                      role="list"
                       className="text-base-900 px-2 py-3 font-medium"
+                      role="list"
                     >
                       {subCategories.map((category) => (
                         <li key={category.name}>
-                          <a href={category.href} className="block px-2 py-3">
+                          <a className="block px-2 py-3" href={category.href}>
                             {category.name}
                           </a>
                         </li>
@@ -132,8 +132,8 @@ export default function ListingsLayout({ children }) {
 
                     {filters.map((section) => (
                       <Disclosure
-                        as="div"
                         key={section.id}
+                        as="div"
                         className="border-base-200 border-t px-4 py-6"
                       >
                         {({ open }) => (
@@ -146,13 +146,13 @@ export default function ListingsLayout({ children }) {
                                 <span className="ml-6 flex items-center">
                                   {open ? (
                                     <MinusIcon
-                                      className="h-5 w-5"
                                       aria-hidden="true"
+                                      className="h-5 w-5"
                                     />
                                   ) : (
                                     <PlusIcon
-                                      className="h-5 w-5"
                                       aria-hidden="true"
+                                      className="h-5 w-5"
                                     />
                                   )}
                                 </span>
@@ -166,16 +166,16 @@ export default function ListingsLayout({ children }) {
                                     className="flex items-center"
                                   >
                                     <input
+                                      className="border-base-300 h-4 w-4 rounded text-indigo-600 focus:ring-indigo-500"
+                                      defaultChecked={option.checked}
+                                      defaultValue={option.value}
                                       id={`filter-mobile-${section.id}-${optionIdx}`}
                                       name={`${section.id}[]`}
-                                      defaultValue={option.value}
                                       type="checkbox"
-                                      defaultChecked={option.checked}
-                                      className="border-base-300 h-4 w-4 rounded text-indigo-600 focus:ring-indigo-500"
                                     />
                                     <label
-                                      htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
                                       className="text-base-500 ml-3 min-w-0 flex-1"
+                                      htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
                                     >
                                       {option.label}
                                     </label>
@@ -206,8 +206,8 @@ export default function ListingsLayout({ children }) {
                   <Menu.Button className="text-base-700 hover:text-base-900 group inline-flex justify-center text-sm font-medium">
                     Sort
                     <ChevronDownIcon
-                      className="text-base-400 group-hover:text-base-500 -mr-1 ml-1 h-5 w-5 shrink-0"
                       aria-hidden="true"
+                      className="text-base-400 group-hover:text-base-500 -mr-1 ml-1 h-5 w-5 shrink-0"
                     />
                   </Menu.Button>
                 </div>
@@ -227,7 +227,6 @@ export default function ListingsLayout({ children }) {
                         <Menu.Item key={option.name}>
                           {({ active }) => (
                             <a
-                              href={option.href}
                               className={classNames(
                                 option.current
                                   ? 'font-medium text-base-900'
@@ -235,6 +234,7 @@ export default function ListingsLayout({ children }) {
                                 active ? 'bg-base-100' : '',
                                 'block px-4 py-2 text-sm'
                               )}
+                              href={option.href}
                             >
                               {option.name}
                             </a>
@@ -247,25 +247,25 @@ export default function ListingsLayout({ children }) {
               </Menu>
 
               <button
-                type="button"
                 className="text-base-400 hover:text-base-500 -m-2 ml-5 p-2 sm:ml-7"
+                type="button"
               >
                 <span className="sr-only">View grid</span>
-                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
+                <Squares2X2Icon aria-hidden="true" className="h-5 w-5" />
               </button>
               <button
-                type="button"
                 className="text-base-400 hover:text-base-500 -m-2 ml-4 p-2 sm:ml-6 lg:hidden"
+                type="button"
                 onClick={() => setMobileFiltersOpen(true)}
               >
                 <span className="sr-only">Filters</span>
-                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
+                <FunnelIcon aria-hidden="true" className="h-5 w-5" />
               </button>
             </div>
           </div>
 
           <section aria-labelledby="products-heading" className="pb-24 pt-6">
-            <h2 id="products-heading" className="sr-only">
+            <h2 className="sr-only" id="products-heading">
               Products
             </h2>
 
@@ -274,8 +274,8 @@ export default function ListingsLayout({ children }) {
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
                 <ul
-                  role="list"
                   className="border-base-200 text-base-900 space-y-4 border-b pb-6 text-sm font-medium"
+                  role="list"
                 >
                   {subCategories.map((category) => (
                     <li key={category.name}>
@@ -286,8 +286,8 @@ export default function ListingsLayout({ children }) {
 
                 {filters.map((section) => (
                   <Disclosure
-                    as="div"
                     key={section.id}
+                    as="div"
                     className="border-base-200 border-b py-6"
                   >
                     {({ open }) => (
@@ -300,13 +300,13 @@ export default function ListingsLayout({ children }) {
                             <span className="ml-6 flex items-center">
                               {open ? (
                                 <MinusIcon
-                                  className="h-5 w-5"
                                   aria-hidden="true"
+                                  className="h-5 w-5"
                                 />
                               ) : (
                                 <PlusIcon
-                                  className="h-5 w-5"
                                   aria-hidden="true"
+                                  className="h-5 w-5"
                                 />
                               )}
                             </span>
@@ -320,16 +320,16 @@ export default function ListingsLayout({ children }) {
                                 className="flex items-center"
                               >
                                 <input
+                                  className="border-base-300 h-4 w-4 rounded text-indigo-600 focus:ring-indigo-500"
+                                  defaultChecked={option.checked}
+                                  defaultValue={option.value}
                                   id={`filter-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
-                                  defaultValue={option.value}
                                   type="checkbox"
-                                  defaultChecked={option.checked}
-                                  className="border-base-300 h-4 w-4 rounded text-indigo-600 focus:ring-indigo-500"
                                 />
                                 <label
-                                  htmlFor={`filter-${section.id}-${optionIdx}`}
                                   className="text-base-600 ml-3 text-sm"
+                                  htmlFor={`filter-${section.id}-${optionIdx}`}
                                 >
                                   {option.label}
                                 </label>
