@@ -6,34 +6,34 @@ export default function SignupPage() {
 
   return (
     <AuthLayout
-      title="Sign up"
       links={[
         {
           label: 'Back to login',
           href: '/auth/login',
         },
       ]}
+      title="Sign up"
     >
-      <Form layout="vertical" form={form}>
+      <Form form={form} layout="vertical">
         <div className="grid grid-cols-2 gap-4">
-          <Form.Item label="First name" required>
+          <Form.Item required label="First name">
             <Input placeholder="Your first name" />
           </Form.Item>
-          <Form.Item label="Surname" required>
+          <Form.Item required label="Surname">
             <Input placeholder="Your surname" />
           </Form.Item>
         </div>
-        <Form.Item label="Place of residence" required>
+        <Form.Item required label="Place of residence">
           <Select
-            options={[]}
             className="w-full"
+            options={[]}
             placeholder="Select your district"
           />
         </Form.Item>
         <Form.Item label="Township / Area">
           <Input placeholder="Your township or area" />
         </Form.Item>
-        <Form.Item label="ID" required>
+        <Form.Item required label="ID">
           <Radio.Group
             defaultValue="Passport"
             options={[
@@ -44,11 +44,11 @@ export default function SignupPage() {
             optionType="button"
           />
           <Input
-            placeholder="Your passport, national ID or license number"
             className="mt-3"
+            placeholder="Your passport, national ID or license number"
           />
         </Form.Item>
-        <Form.Item label="Phone number" required>
+        <Form.Item required label="Phone number">
           <Input placeholder="Your phone number" />
         </Form.Item>
         <Form.Item label="Email">
