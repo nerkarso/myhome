@@ -12,9 +12,9 @@ export default function HomeNewListings() {
           you.
         </p>
       </div>
-      <div className="mt-8 grid grid-cols-4 gap-6">
+      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-4">
         {listingsData.map((listing) => (
-          <ListingCard listing={listing} key={listing.id} />
+          <ListingCard key={listing.id} listing={listing} />
         ))}
       </div>
     </div>

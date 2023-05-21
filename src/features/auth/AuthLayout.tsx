@@ -16,7 +16,7 @@ export default function AuthLayout({
 }: ComponentProps<Props>) {
   return (
     <SiteLayout>
-      <div className="container flex">
+      <div className="container flex h-full items-center">
         <div className="mx-auto w-full max-w-md space-y-8 py-4">
           <h1 className="text-center text-3xl font-semibold">{title}</h1>
           {children}
@@ -24,8 +24,8 @@ export default function AuthLayout({
             {links?.map(({ label, href }, i) => (
               <Link
                 key={i}
-                to={href}
                 className="text-base-500 text-sm underline"
+                to={href}
               >
                 {label}
               </Link>
