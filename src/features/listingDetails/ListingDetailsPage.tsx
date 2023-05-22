@@ -1,6 +1,8 @@
+import MobileNavBar from '@/components/MobileNavBar';
 import SiteLayout from '@/components/SiteLayout';
 import { classNames } from '@/utils/classNames';
 import { formatPrice } from '@/utils/formatPrice';
+import { useLaptopScreen } from '@/utils/useLaptopScreen';
 import { HomeOutlined } from '@ant-design/icons';
 import { StarIcon } from '@heroicons/react/20/solid';
 import { Breadcrumb, Button } from 'antd';
@@ -38,25 +40,31 @@ const product = {
 const reviews = { href: '#', average: 4, totalCount: 117 };
 
 export default function ListingDetailsPage() {
+  const isLaptopScreen = useLaptopScreen();
+
   return (
     <SiteLayout>
       <div className="container">
-        <Breadcrumb
-          className="py-4"
-          items={[
-            {
-              href: '/',
-              title: <HomeOutlined />,
-            },
-            {
-              href: '/listings',
-              title: 'Listings',
-            },
-            {
-              title: '1730 Linwood Ave',
-            },
-          ]}
-        />
+        {isLaptopScreen ? (
+          <Breadcrumb
+            className="py-4"
+            items={[
+              {
+                href: '/',
+                title: <HomeOutlined />,
+              },
+              {
+                href: '/listings',
+                title: 'Listings',
+              },
+              {
+                title: '1730 Linwood Ave',
+              },
+            ]}
+          />
+        ) : (
+          <MobileNavBar>Listing</MobileNavBar>
+        )}
 
         {/* Image gallery */}
         <div className="lg:grid lg:grid-cols-3 lg:gap-x-2">

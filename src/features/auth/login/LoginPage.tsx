@@ -6,15 +6,19 @@ export default function LoginPage() {
 
   return (
     <AuthLayout
-      title="Log in"
       links={[
         {
           label: 'Forgot your password?',
           href: '/auth/forgot-password',
         },
+        {
+          label: 'Already have an account? Sign up',
+          href: '/auth/signup',
+        },
       ]}
+      title="Log in"
     >
-      <Form layout="vertical" form={form}>
+      <Form form={form} layout="vertical">
         <Form.Item label="Phone number">
           <Input placeholder="Your phone number" />
         </Form.Item>

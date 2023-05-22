@@ -1,12 +1,12 @@
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
-import { useMediaQuery } from '@/utils/useMediaQuery';
+import { useLaptopScreen } from '@/utils/useLaptopScreen';
 import MobileTabBar from './MobileTabBar';
 
 export default function SiteLayout({ children }: ComponentProps) {
-  const isLaptop = useMediaQuery('(min-width: 768px)');
+  const isLaptopScreen = useLaptopScreen();
 
-  if (isLaptop) {
+  if (isLaptopScreen) {
     return (
       <>
         <SiteHeader />
@@ -18,6 +18,7 @@ export default function SiteLayout({ children }: ComponentProps) {
 
   return (
     <div className="fixed inset-0 flex flex-col">
+      <div className="h-10"></div>
       <main className="flex-1 overflow-y-auto">{children}</main>
       <MobileTabBar />
     </div>
